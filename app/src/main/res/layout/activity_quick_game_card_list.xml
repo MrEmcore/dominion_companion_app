@@ -1,0 +1,44 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/dominion" />
+
+    <!-- Parchment Image -->
+    <ImageView
+        android:id="@+id/parchment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/parchment"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp" /> <!-- Add margin to ensure the parchment doesn't touch the edges -->
+
+    <!-- TextView for Card List -->
+    <TextView
+        android:id="@+id/card_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:visibility="visible"
+        android:fontFamily="@font/olde_english"
+        app:layout_constraintTop_toTopOf="@id/parchment"
+        app:layout_constraintBottom_toBottomOf="@id/parchment"
+        app:layout_constraintStart_toStartOf="@id/parchment"
+        app:layout_constraintEnd_toEndOf="@id/parchment"
+        android:padding="16dp" /> <!-- Add padding to ensure the text doesn't touch the edges of the parchment -->
+</androidx.constraintlayout.widget.ConstraintLayout>
