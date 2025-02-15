@@ -11,34 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val randomizeButton: Button = findViewById(R.id.quick_play)
+        val dominionAloneButton: Button = findViewById(R.id.dominion_alone)
 
-        randomizeButton.setOnClickListener {
-            // Generate randomized cards
-            val cards = randomize()
-
-            // Create an intent to navigate to CardListActivity
-            val intent = Intent(this, CardListActivity::class.java)
-            // Pass the cards to the new activity
-            intent.putStringArrayListExtra("cards", ArrayList(cards))
+        dominionAloneButton.setOnClickListener {
+            val intent = Intent(this, DominionActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    private fun randomize(): Set<String> {
-        val dominionCards = listOf(
-            "Artisan", "Bandit", "Bureaucrat", "Cellar", "Chapel", "Council Room", "Festival", "Gardens",
-            "Harbinger", "Laboratory", "Library", "Market", "Merchant", "Militia", "Mine", "Moat",
-            "Moneylender", "Poacher", "Remodel", "Sentry", "Smithy", "Throne Room", "Vassal", "Village",
-            "Witch", "Workshop"
-        )
-        val gameCards = mutableSetOf<String>()
-
-        while (gameCards.size < 10) {
-            val card = dominionCards.random()
-            gameCards.add(card)
-        }
-
-        return gameCards
     }
 }
